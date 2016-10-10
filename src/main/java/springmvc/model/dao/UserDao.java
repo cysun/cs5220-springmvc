@@ -10,4 +10,6 @@ public interface UserDao {
 
     List<User> getUsers();
 
+    User saveUser( User user );
+
 }
