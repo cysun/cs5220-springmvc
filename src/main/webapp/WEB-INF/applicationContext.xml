@@ -45,7 +45,12 @@
     </security:authentication-manager>
 
     <security:http auto-config="true" use-expressions="true">
+        <security:csrf disabled="true" />
+        <security:form-login login-page="/login.html" />
+        <security:logout logout-success-url="/" />
         <security:intercept-url pattern="/user/**" access="authenticated" />
     </security:http>
+
+    <security:global-method-security pre-post-annotations="enabled" />
 
 </beans>
