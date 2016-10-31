@@ -6,6 +6,7 @@
   <li><a href="user/list.html">Users</a></li>
   <li><a href="file/upload.html">File Upload</a></li>
   <li><a href="file/download.html">File Download</a></li>
+  <li><a href="email.html">Email</a></li>
 </ul>
 </body>
 </html>

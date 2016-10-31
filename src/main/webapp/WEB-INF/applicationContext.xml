@@ -53,4 +53,10 @@
 
     <security:global-method-security pre-post-annotations="enabled" />
 
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="localhost" />
+        <property name="username" value="cysun@localhost.localdomain" />
+        <property name="password" value="abcd" />
+    </bean>
+
 </beans>
