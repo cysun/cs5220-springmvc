@@ -48,6 +48,7 @@
         <security:csrf disabled="true" />
         <security:form-login login-page="/login.html" />
         <security:logout logout-success-url="/" />
+        <security:intercept-url pattern="/email.html" access="authenticated" />
         <security:intercept-url pattern="/user/**" access="authenticated" />
     </security:http>
 
