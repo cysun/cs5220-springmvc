@@ -15,7 +15,7 @@ import springmvc.model.User;
 import springmvc.model.dao.UserDao;
 
 @Controller
-@SessionAttributes("user")
+@SessionAttributes({ "user", "users" })
 public class UserController {
 
     @Autowired
@@ -46,6 +46,7 @@ public class UserController {
     public String add( ModelMap models )
     {
         models.put( "user", new User() );
+        models.put( "users", userDao.getUsers() );
         return "user/add";
     }
 
@@ -60,6 +61,7 @@ public class UserController {
     public String edit( @RequestParam Integer id, ModelMap models )
     {
         models.put( "user", userDao.getUser( id ) );
+        models.put( "users", userDao.getUsers() );
         return "user/edit";
     }
 

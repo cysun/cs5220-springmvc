@@ -10,6 +10,7 @@
 <form:form modelAttribute="user">
 Username: ${user.username} <br />
 Password: <form:input path="password" /> <br />
+Manager: <form:select path="manager" items="${users}" itemLabel="username" /> <br />
 <input type="submit" name="save" value="Save" />
 </form:form>
 </body>

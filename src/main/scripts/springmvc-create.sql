@@ -4,7 +4,8 @@ create table users (
     id          integer primary key,
     username    varchar(255) unique,
     password    varchar(255),
-    enabled     boolean not null default 't'
+    enabled     boolean not null default 't',
+    manager_id  integer references users(id)
 );
 
 insert into users values (1, 'admin', '1234', 't');
