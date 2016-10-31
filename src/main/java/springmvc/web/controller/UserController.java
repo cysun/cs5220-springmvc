@@ -3,6 +3,7 @@ package springmvc.web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import springmvc.model.User;
 import springmvc.model.dao.UserDao;
+import springmvc.web.validator.UserValidator;
 
 @Controller
 @SessionAttributes({ "user", "users" })
@@ -20,6 +22,9 @@ public class UserController {
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private UserValidator userValidator;
 
     @RequestMapping("/user/list.html")
     public String list( ModelMap models )
@@ -51,8 +56,11 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/add.html", method = RequestMethod.POST)
-    public String add( @ModelAttribute User user )
+    public String add( @ModelAttribute User user, BindingResult result )
     {
+        userValidator.validate( user, result );
+        if( result.hasErrors() ) return "user/add";
+
         user = userDao.saveUser( user );
         return "redirect:list.html";
     }
@@ -66,8 +74,12 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/edit.html", method = RequestMethod.POST)
-    public String edit( @ModelAttribute User user, SessionStatus sessionStatus )
+    public String edit( @ModelAttribute User user, BindingResult result,
+        SessionStatus sessionStatus )
     {
+        userValidator.validate( user, result );
+        if( result.hasErrors() ) return "user/edit";
+
         user = userDao.saveUser( user );
         sessionStatus.setComplete();
         return "redirect:list.html";
