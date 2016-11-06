@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
 <!DOCTYPE html>
@@ -14,13 +16,17 @@
 </head>
 <body>
 
-<tiles:insertAttribute name="header" defaultValue="header.jsp" defaultValueType="template" />
+<h2>User Management</h2>
 
 <div class="content">
   <tiles:insertAttribute name="content" />
 </div>
 
-<tiles:insertAttribute name="footer" defaultValue="footer.jsp" defaultValueType="template"/>
+<security:authorize access="authenticated">
+<p><a href="<c:url value='/logout' />">Logout</a></p>
+</security:authorize>
+
+<p>Copyright &copy; 2016, Chengyu Sun. All rights reserved.</p>
 
 </body>
 </html>

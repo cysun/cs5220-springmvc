@@ -5,24 +5,22 @@
 
 <tiles-definitions>
 
-    <definition name="template" template="/WEB-INF/jsp/layout/template.jsp" />
-    
-    <definition name="user/list" extends="template">
+    <definition name="user/list" template="/WEB-INF/jsp/template.jsp">
         <put-attribute name="title" value="Users" />
         <put-attribute name="content" value="/WEB-INF/jsp/user/list.jsp" />
     </definition>
 
-    <definition name="user/view" extends="template">
+    <definition name="user/view" template="/WEB-INF/jsp/template.jsp">
         <put-attribute name="title" value="View User" />
         <put-attribute name="content" value="/WEB-INF/jsp/user/view.jsp" />
     </definition>
 
-    <definition name="user/add" extends="template">
+    <definition name="user/add" template="/WEB-INF/jsp/template.jsp">
         <put-attribute name="title" value="Add User" />
         <put-attribute name="content" value="/WEB-INF/jsp/user/add.jsp" />
     </definition>
 
-    <definition name="user/edit" extends="template">
+    <definition name="user/edit" template="/WEB-INF/jsp/template.jsp">
         <put-attribute name="title" value="Edit User" />
         <put-attribute name="content" value="/WEB-INF/jsp/user/edit.jsp" />
     </definition>
