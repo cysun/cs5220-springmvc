@@ -87,5 +87,10 @@
           <artifactId>slf4j-log4j12</artifactId>
           <version>1.7.21</version>
       </dependency>
+      <dependency>
+          <groupId>org.apache.tiles</groupId>
+          <artifactId>tiles-jsp</artifactId>
+          <version>3.0.7</version>
+      </dependency>
   </dependencies>
 </project>
