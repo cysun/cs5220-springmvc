@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>File Upload and Download</title>
+<title>Files</title>
 </head>
 <body>
 <h2>Files</h2>

@@ -56,8 +56,7 @@ public class FileController {
     {
         File file = new File( folder, name );
 
-        response.setHeader( "Content-Disposition",
-            "attachment; filename=" + name );
+        response.setHeader( "Content-Disposition", "inline; filename=" + name );
         response.setHeader( "Content-Length", "" + file.length() );
         FileInputStream in = new FileInputStream( file );
         OutputStream out = response.getOutputStream();
