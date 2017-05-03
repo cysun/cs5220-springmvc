@@ -63,10 +63,12 @@
         <property name="password" value="abcd" />
     </bean>
 
+    <bean id="freemarkerConfiguration" class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
+        <property name="templateLoaderPath" value="/WEB-INF/freemarker" />
+    </bean>
+ 
     <task:scheduler id="scheduler" />
-
     <task:executor id="executor" pool-size="5"/>
-
     <task:annotation-driven scheduler="scheduler" executor="executor" />
 
     <context:component-scan base-package="springmvc.task" />

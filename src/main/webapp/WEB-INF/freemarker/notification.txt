@@ -1,0 +1,9 @@
+Dear ${recipient}:
+
+You have won the lottery for $100,000,000. Please send us your contact
+information asap.
+
+Sincerely,
+
+${user.username}
+${date?date}

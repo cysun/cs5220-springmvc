@@ -30,6 +30,7 @@ public class FileController {
     {
         folder = new File(
             context.getServletContext().getRealPath( "/WEB-INF/files" ) );
+        if( !folder.exists() ) folder.mkdirs();
     }
 
     @RequestMapping(value = "/files.html", method = RequestMethod.GET)

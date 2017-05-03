@@ -1,32 +1,39 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Email</title>
+<style>
+input[type="text"] {width: 100%;}
+</style>
 </head>
 <body>
 
-<form method="post">
+<form:form modelAttribute="message">
 <table>
 <tr>
-  <td>From:</td><td><input type="text" name="from" style="width: 100%;" /></td> 
+  <td>From:</td>
+  <td><form:input path="from" /></td> 
 </tr>
 <tr>
-  <td>To:</td><td><input type="text" name="to" style="width: 100%;" /></td> 
+  <td>To:</td>
+  <td><form:input path="to" /></td> 
 </tr>
 <tr>
-  <td>Subject:</td><td><input type="text" name="subject" style="width: 100%;" /></td> 
+  <td>Subject:</td>
+  <td><form:input path="subject" /></td> 
 </tr>
 <tr>
   <td colspan="2">
-    <textarea name="content" rows="5" cols="60"></textarea>
+    <form:textarea path="text" rows="15" cols="80"></form:textarea>
   </td>
 </tr>
 <tr>
   <td colspan="2"><input type="submit" name="send" value="Send" /></td>
 </tr>
 </table>
-</form>
+</form:form>
 
 </body>
 </html>
